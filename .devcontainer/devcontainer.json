@@ -1,14 +1,14 @@
 {
-  "name": "my-special-dev", // NOTE: chage this if needed
+  "name": "my-special-dev",
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "runArgs": [
+  "runArgs": [ // NOTE: chage this if needed
     "--rm",
-    "--name=mydevctr" // NOTE: chage this if needed
+    "--name=devctr"
   ],
   "updateContentCommand": "bash .devcontainer/install-nvim.sh",
   "remoteEnv": { "TERM": "xterm-256color" },
-  "remoteUser": "root",
+  "remoteUser": "ubuntu",
   "customizations": { }
 }
