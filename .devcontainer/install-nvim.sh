@@ -1,0 +1,14 @@
+#!/bin/bash
+
+apt-get update -qq -y
+apt-get install -qq -y git make curl zsh tmux unzip python3-venv
+
+git clone --depth=1 https://github.com/WesleyCh3n/dotfiles $HOME/dotfiles/
+cd $HOME/dotfiles/ && \
+  ln -sf "$PWD/dotfiles/.zshrc" "$HOME/.zshrc" && \
+  ln -sf "$PWD/dotfiles/.p10k.zsh" "$HOME/.p10k.zsh" && \
+  ln -sf "$PWD/dotfiles/.config/" "$HOME/.config" && \
+  make -f pkg.mk fd rg nvim node fzf && \
+  zsh -c "source $HOME/.zshrc && npm update -g npm && npm install -g yarn" && \
+  zsh -c "source $HOME/.zshrc && nvim --headless \"+Lazy! sync\" +qa" && \
+  zsh -c "source $HOME/.zshrc && nvim --headless +\"MasonInstall ruff pyright clangd rust-analyzer\" +qa"
