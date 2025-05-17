@@ -1,1 +1,1 @@
-# My Neovim Devcontainer Setup
+# Neovim Devcontainer Setup
